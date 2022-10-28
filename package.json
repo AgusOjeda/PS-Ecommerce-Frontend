@@ -1,0 +1,38 @@
+{
+  "name": "ps-tp3",
+  "version": "1.0.0",
+  "description": "tp3 for software project assignature",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss src/styles.css -o public/css/styles.css --watch",
+    "watch": "watch \"npm run build\"",
+    "dev": "nodemon -L -e js,html,css app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgusOjeda/PS-TP3.git"
+  },
+  "keywords": [],
+  "author": "Agustin Ojeda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgusOjeda/PS-TP3/issues"
+  },
+  "homepage": "https://github.com/AgusOjeda/PS-TP3#readme",
+  "dependencies": {
+    "autoprefixer": "10.4.13",
+    "express": "4.18.2",
+    "postcss-cli": "10.0.0",
+    "tailwindcss": "3.2.1",
+    "watch": "1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "reload": "^3.2.0",
+    "standard": "17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
