@@ -1,20 +1,32 @@
-import { getProducts, ProductById } from '../services/ProductService.js'
-import { CreateClient } from '../services/ClienteService.js'
+import { getProducts } from '../services/ProductService.js'
 import { ProductCard } from '../components/productCard.js'
-let _productsContainer
+let content
+let _root
 const RenderProduct = async (products) => {
   products.forEach((product) => {
     const productBox = document.createElement('div')
+    productBox.classList.add('rounded-3xl', 'text-center', 'hover:rounded-3xl', 'hover:border-2', 'hover:border-green-500', 'hover:transition-all', 'duration-75')
+    productBox.setAttribute('id', product.id)
     const productContent = ProductCard(product.id, product.nombre, product.marca, product.precio, product.descripcion, product.imagenUrl)
     productBox.innerHTML = productContent
-    _productsContainer.append(productBox)
+    content.append(productBox)
   })
+}
+const RenderProductPage = async () => {
+  const { view, title } = renderFrame()
+  await chargeInit()
+  changeView(view, title)
 }
 
 const searchProduct = async (e) => {
-  _productsContainer.innerHTML = ''
+  e.preventDefault()
+  _root.innerHTML = ''
+  const { view, title } = renderFrame()
   const search = e.target.value
-  getProducts(search, '', RenderProduct)
+  await getProducts(search, '', (product) => {
+    RenderProduct(product)
+  })
+  changeView(view, title)
 }
 const chargeInit = async () => {
   await getProducts('', '', (product) => {
@@ -22,7 +34,22 @@ const chargeInit = async () => {
   })
 }
 export const IndexRender = async () => {
-  _productsContainer = document.getElementById('products-container')
-  chargeInit()
+  _root = document.getElementById('root')
+  RenderProductPage()
   document.getElementById('search').onchange = searchProduct
+}
+function renderFrame () {
+  const view = document.createElement('section')
+  view.classList.add('mt-8', 'mx-auto', 'w-full', 'max-w-5xl', 'center')
+  const title = document.createElement('h1')
+  title.classList.add('text-3xl', 'font-bold', 'text-center', 'mb-8')
+  title.textContent = 'Productos'
+  content = document.createElement('div')
+  content.setAttribute('id', 'content')
+  content.classList.add('grid', 'grid-cols-4', 'gap-x-16', 'gap-y-9', 'mt-16')
+  return { view, title }
+}
+function changeView (view, title) {
+  view.innerHTML = title.outerHTML + content.outerHTML
+  _root.innerHTML = view.outerHTML
 }

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "postcss src/styles.css -o public/css/styles.css --watch",
     "watch": "watch \"npm run build\"",
-    "dev": "nodemon -L -e js,html,css app.js"
+    "dev": "nodemon -L -e js,html,css app.js & \"npm run watch\""
   },
   "repository": {
     "type": "git",
