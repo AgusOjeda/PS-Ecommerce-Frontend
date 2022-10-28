@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Vanilla JS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="/reload/reload.js"></script>
+</head>
+
+<body class="bg-white text-slate-900 text-xl font-normal leading-6 container">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-xl">
+        <!-- Navigation -->
+        <nav class="flex items-center justify-between flex-auto ml-10 mr-10">
+            <a href="#" class="text-2xl text-blue-600 font-courgette">Almacelme</a>
+            <!-- Search tab -->
+            <input type="text" id="search"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-2/3 p-2.5 "
+                placeholder="Search" required>
+            <!-- Cart-Icon -->
+            <i class="bx bx-shopping-bag text-3xl cursor-pointer" id="cart-icon"></i>
+        </nav>
+    </header>
+
+    <section class="mt-8 mx-auto w-full max-w-5xl">
+        <h2 class="section-title">Productos</h2>
+        <!-- Content -->
+        <div id="products-container" class="products-container grid grid-cols-4 grid-rows-3 gap-x-16 gap-y-9 mt-16">
+            <!-- Product -->
+
+        </div>
+    </section>
+    </div>
+    <script type="module" src="../js/init.js"></script>
+</body>
+
+</html>
