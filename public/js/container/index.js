@@ -43,7 +43,7 @@ function renderFrame () {
   title.textContent = 'Productos'
   content = document.createElement('div')
   content.setAttribute('id', 'content')
-  content.classList.add('grid', 'grid-cols-4', 'gap-x-16', 'gap-y-9', 'mt-16')
+  content.classList.add('grid', 'grid-cols-4', 'gap-x-16', 'gap-y-9', 'mt-8', 'justify-items-center')
   return { view, title }
 }
 function changeView (view, title) {
