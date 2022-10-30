@@ -7,7 +7,7 @@ const reload = require('reload')
 
 // Path: routes/index.js
 router.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/view/index.html')))
-
+router.get('/test', (req, res) => res.sendFile(path.join(__dirname, '/public/view/test.html')))
 app.use(express.static(path.join(__dirname, '/public')))
 app.use('/', router)
 app.listen(port, () => console.log(`listening on port ${port}!`))

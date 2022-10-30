@@ -26,13 +26,14 @@ export const getProducts = async (name, sort, callback) => {
 export const ProductById = async (id, callback) => {
   const url = `${urlBase}/${id}`
   await fetch(url)
-    .then((httpResponse) => {
+    .then(async (httpResponse) => {
       if (httpResponse.ok) {
         return httpResponse.json()
       }
     })
     .then((body) => {
       callback(body)
+      return body
     })
     .finally((body) => {
       return body

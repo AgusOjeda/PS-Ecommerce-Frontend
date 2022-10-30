@@ -4,3 +4,12 @@ window.onload = () => {
   // Start the application
   IndexRender()
 }
+/*
+    <script>
+        const closeButton = document.getElementById('close-modal');
+        const modal = document.getElementById('modal-component-container');
+        closeButton.onclick = () => {
+            modal.classList.add('hidden');
+        }
+    </script>
+*/

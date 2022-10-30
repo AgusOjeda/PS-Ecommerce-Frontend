@@ -1,13 +1,15 @@
 import { getProducts } from '../services/ProductService.js'
 import { ProductCard } from '../components/productCard.js'
+import { modal } from '../services/modal.js'
 let content
 let _root
+
 const RenderProduct = async (products) => {
   products.forEach((product) => {
     const productBox = document.createElement('div')
     productBox.classList.add('rounded-3xl', 'text-center', 'hover:rounded-3xl', 'hover:border-2', 'hover:border-green-500', 'hover:transition-all', 'duration-75')
     productBox.setAttribute('id', product.id)
-    const productContent = ProductCard(product.id, product.nombre, product.marca, product.precio, product.descripcion, product.imagenUrl)
+    const productContent = ProductCard(product.nombre, product.marca, product.precio, product.descripcion, product.imagenUrl)
     productBox.innerHTML = productContent
     content.append(productBox)
   })
@@ -33,23 +35,25 @@ const chargeInit = async () => {
     RenderProduct(product)
   })
 }
-export const IndexRender = async () => {
-  _root = document.getElementById('root')
-  RenderProductPage()
-  document.getElementById('search').onchange = searchProduct
-}
-function renderFrame () {
+function renderFrame() {
   const view = document.createElement('section')
   view.classList.add('mt-8', 'mx-auto', 'w-full', 'max-w-5xl', 'center')
   const title = document.createElement('h1')
-  title.classList.add('text-3xl', 'font-bold', 'text-center', 'mb-8')
+  title.classList.add('text-3xl', 'font-bold', 'text-center', 'mt-8')
   title.textContent = 'Productos'
   content = document.createElement('div')
   content.setAttribute('id', 'content')
   content.classList.add('grid', 'grid-cols-4', 'gap-x-16', 'gap-y-9', 'mt-16')
   return { view, title }
 }
-function changeView (view, title) {
+function changeView(view, title) {
   view.innerHTML = title.outerHTML + content.outerHTML
   _root.innerHTML = view.outerHTML
+}
+
+export const IndexRender = async () => {
+  _root = document.getElementById('root')
+  await RenderProductPage()
+  document.getElementById('search').onchange = searchProduct
+  modal()
 }
