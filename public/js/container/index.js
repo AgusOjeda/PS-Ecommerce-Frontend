@@ -35,7 +35,7 @@ const chargeInit = async () => {
     RenderProduct(product)
   })
 }
-function renderFrame() {
+function renderFrame () {
   const view = document.createElement('section')
   view.classList.add('mt-8', 'mx-auto', 'w-full', 'max-w-5xl', 'center')
   const title = document.createElement('h1')
@@ -46,7 +46,7 @@ function renderFrame() {
   content.classList.add('grid', 'grid-cols-4', 'gap-x-16', 'gap-y-9', 'mt-16')
   return { view, title }
 }
-function changeView(view, title) {
+function changeView (view, title) {
   view.innerHTML = title.outerHTML + content.outerHTML
   _root.innerHTML = view.outerHTML
 }

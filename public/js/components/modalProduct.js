@@ -17,15 +17,15 @@ export const ModalProduct = (product) => `
                     <!-- ProductInfo -->
                     <div class="pr-4 justify-items-center center">
                         <h3 class="text-2xl font-semibold mb-2 top-0 text-center">${product.nombre}</h3>
-                        <p class="flex text-xs justify-end">Codigo: ${product.codigo}</p>
+                        <span class="flex text-xs justify-end">Codigo: ${product.codigo}</span>
                         <p class="text-xs pt-2">${product.descripcion}</p>
                         <p class="text-3xl font-bold text-green-500 text-center mt-10">$ ${product.precio}</p>
                         <div class="grid grid-cols-2 gap-2 mt-4">
                             <div class="center text-center border-slate-200 border rounded-2xl select-none">
-                                <i class="bx bx-minus text-xl cursor-pointer text-green-500"></i>
-                                <input type="number" id="quantity" name="quantity" min="1" value="1" readonly
-                                    class="bg-white rounded-2xl w-14 text-xl text-center focus:outline-none">
-                                <i class="bx bx-plus text-xl cursor-pointer text-green-500"></i>
+                                <span><i id="quantity-decrement" class="bx bx-minus text-xl cursor-pointer text-green-500 mr-4"></i></span>
+                                <span id="quantity"
+                                    class="bg-white rounded-2xl w-14 text-xl text-center focus:outline-none">1</span>
+                                <span><i id="quantity-increment" class="bx bx-plus text-xl cursor-pointer text-green-500 ml-4"></i></span>
                             </div>
                             <button
                                 class="border-slate-200 border rounded-2xl bg-green-500 text-white font-normal hover:ring-green-500 hover:outline-none hover:ring-2"><i

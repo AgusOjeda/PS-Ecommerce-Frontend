@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -13,19 +13,21 @@
 
 <body class="bg-white text-slate-900 text-xl font-normal">
     <!-- Header -->
-    <header class="fixed top-0 w-full bg-white shadow-xl">
+    <header class="sticky top-0 w-full bg-white shadow-xl">
         <!-- Navigation -->
-        <nav class="flex p-4 items-center justify-center m-2 mr-20 ml-20">
-            <a href="#" class="text-2xl text-blue-600 font-courgette">Almacelme</a>
+        <nav class="flex p-2 items-center justify-center m-2 mr-20 ml-20">
+            <a href="#" class="text-2xl text-blue-600 font-courgette mr-4">Almacelme</a>
             <!-- Search tab -->
             <input type="text" id="search"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-2/3 p-2.5 "
                 placeholder="Search" required>
             <!-- Cart-Icon -->
-            <i class="bx bx-shopping-bag text-3xl cursor-pointer" id="cart-icon"></i>
+            <i class="bx bx-shopping-bag text-3xl cursor-pointer ml-4" id="cart-icon"></i>
+            <!-- Cart -->
+        
         </nav>
     </header>
-    <main class="mt-8">
+    <main>
         <div id="root">
         </div>
     </main>

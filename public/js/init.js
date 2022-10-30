@@ -1,15 +1,8 @@
 import { IndexRender } from './container/index.js'
+import { CartRender } from './container/cart.js'
 window.onload = () => {
-  // Initialize the application
-  // Start the application
+  document.getElementById('cart-icon').addEventListener('click', () => {
+    CartRender()
+  })
   IndexRender()
 }
-/*
-    <script>
-        const closeButton = document.getElementById('close-modal');
-        const modal = document.getElementById('modal-component-container');
-        closeButton.onclick = () => {
-            modal.classList.add('hidden');
-        }
-    </script>
-*/

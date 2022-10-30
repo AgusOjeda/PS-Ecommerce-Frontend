@@ -5,7 +5,11 @@ module.exports = {
     './public/js/container/*.js'
   ],
   theme: {
-    extend: {}
+    extend: {
+      gridTemplateColumns: {
+        cart: '32% 50% 18%'
+      }
+    }
   },
   plugins: []
 }
