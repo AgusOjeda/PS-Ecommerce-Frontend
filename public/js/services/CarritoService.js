@@ -1,5 +1,10 @@
 const urlBase = 'https://localhost:7044/api/carrito'
 export const AddProductToCart = async (ItemRequest, callback) => {
+  const AddProduct = {
+    clientId: 1,
+    productId: ItemRequest.productId,
+    amount: ItemRequest.amount
+  }
   const headersList = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
@@ -7,7 +12,7 @@ export const AddProductToCart = async (ItemRequest, callback) => {
   await fetch(urlBase, {
     method: 'POST',
     headers: headersList,
-    body: JSON.stringify(ItemRequest)
+    body: JSON.stringify(AddProduct)
   })
     .then((httpResponse) => {
       if (httpResponse.ok) {
@@ -22,6 +27,11 @@ export const AddProductToCart = async (ItemRequest, callback) => {
     })
 }
 export const UpdateProductInCart = async (ItemRequest, callback) => {
+  const UpdateProduct = {
+    clientId: 1,
+    productId: ItemRequest.productId,
+    amount: ItemRequest.amount
+  }
   const headersList = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
@@ -29,7 +39,7 @@ export const UpdateProductInCart = async (ItemRequest, callback) => {
   await fetch(urlBase, {
     method: 'PUT',
     headers: headersList,
-    body: JSON.stringify(ItemRequest)
+    body: JSON.stringify(UpdateProduct)
   })
     .then((httpResponse) => {
       if (httpResponse.ok) {

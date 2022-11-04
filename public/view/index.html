@@ -1,40 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ECOMMERCE</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" />
     <script src="/reload/reload.js"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-</head>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="bg-white text-slate-900 text-xl font-normal">
+  <body class="bg-white text-textColor text-xl font-normal font-GilroyRegular">
     <!-- Header -->
     <header class="sticky top-0 w-full bg-white shadow-xl">
-        <!-- Navigation -->
-        <nav class="grid grid-cols-3 gap-4 mr-8 ml-8 justify-items-center p-4">
-            <a href="#" class="text-2xl text-blue-600 font-courgette mr-8 items-start">Almacelme</a>
-            <!-- Search tab -->
-            <input type="text" id="search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 "
-                placeholder="Search" required>
-            <!-- Cart-Icon -->
-            <i class="bx bx-shopping-bag text-3xl cursor-pointer ml-4" id="cart-icon"></i>
-            <!-- Cart -->
-        
-        </nav>
+      <!-- Navigation -->
+      <nav class="grid grid-cols-3 gap-4 justify-items-center p-4">
+        <a
+          href="#"
+          id="logo"
+          class="text-2xl text-blue-600 font-courgette mr-8 items-start"
+          >Almacelme</a
+        >
+        <!-- Search tab -->
+        <input
+          type="text"
+          id="search"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+          placeholder="Search"
+          required
+        />
+        <!-- Cart-Icon -->
+        <i
+          class="bx bx-shopping-bag text-3xl cursor-pointer ml-4"
+          id="cart-icon"
+        ></i>
+        <!-- Cart -->
+      </nav>
     </header>
     <main>
-        <div id="root">
-        </div>
+      <div id="root"></div>
     </main>
     <!-- Footer -->
-    <section>
-    </section>
+    <footer class="bottom-0 w-full sticky hidden">
+      <div class="bg-gray-100 p-4">
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <h3 class="text-xl font-bold">Almacelme</h3>
+          </div>
+          <div class="text-center">
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-linkedin-square"></i>
+            <i class="bx bxl-instagram"></i>
+            <p class="text-sm">Todos los derechos reservados</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold">Newsletter</h3>
+            <p class="text-sm">Suscribete para recibir ofertas y promociones</p>
+            <div class="border-b border-gray-500 w-fit outline-none">
+              <input type="email" class="p-2 bg-gray-100" placeholder="Email" />
+              <span class="cursor-pointer"><i class="bx bx-envelope"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script type="module" src="../js/init.js"></script>
-</body>
-
+  </body>
 </html>

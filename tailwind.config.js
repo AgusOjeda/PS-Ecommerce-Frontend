@@ -5,9 +5,22 @@ module.exports = {
     './public/js/container/*.js'
   ],
   theme: {
+    container: {
+      center: true
+    },
     extend: {
+      fontFamily: {
+        GilroyRegular: ['Gilroy-Regular', 'sans-serif']
+      },
       gridTemplateColumns: {
         cart: '32% 50% 18%'
+      },
+      colors: {
+        bgPrimary: '#EFF1FA',
+        textColor: '#1A2030',
+        secondary: '#1D5BFB',
+        secondaryHover: '#174ACE',
+        gold: '#FBC920'
       }
     }
   },

@@ -8,17 +8,27 @@ export const CreateClient = async (client, callback) => {
     method: 'POST',
     headers: headersList,
     body: JSON.stringify(client)
+  }).then(async (httpResponse) => {
+    return httpResponse.json()
   })
-    .then((httpResponse) => {
-      if (httpResponse.ok) {
-        return httpResponse.json()
-      }
-    })
-
     .then((body) => {
       callback(body)
     })
     .finally((body) => {
       return body
     })
+}
+
+export const CreateClient2 = async (client) => {
+  const headersList = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json'
+  }
+  const response = await fetch(urlBase, {
+    method: 'POST',
+    headers: headersList,
+    body: JSON.stringify(client)
+  })
+  const body = await response.json()
+  return body
 }
