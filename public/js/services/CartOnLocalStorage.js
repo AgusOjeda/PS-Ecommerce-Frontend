@@ -18,7 +18,9 @@ export const saveCartOnLocalStorage = (cart) => {
 export const getCartOnLocalStorage = () => {
   return JSON.parse(window.localStorage.getItem('cart'))
 }
+
 export const getProductOnLocalCartById = (id) => {
+  id = parseInt(id)
   const cart = getCartOnLocalStorage()
   if (cart === null) {
     return 0
@@ -29,4 +31,13 @@ export const getProductOnLocalCartById = (id) => {
 }
 export const deleteCartOnLocalStorage = () => {
   window.localStorage.removeItem('cart')
+}
+export const deleteOnLocalCartById = (id) => {
+  const cart = getCartOnLocalStorage()
+  if (cart.length > 1) {
+    const newCart = cart.filter((item) => item.productId !== id)
+    window.localStorage.setItem('cart', JSON.stringify(newCart))
+  } else {
+    window.localStorage.removeItem('cart')
+  }
 }
