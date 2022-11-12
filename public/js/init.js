@@ -1,7 +1,5 @@
 import { IndexRender } from './container/index.js'
 import { CartRender } from './container/cart.js'
-import { saveCartOnLocalStorage } from './services/CartOnLocalStorage.js'
-import { CreateClient2, CreateClient } from './services/ClienteService.js'
 import { SaleRender } from './container/sale.js'
 window.onload = () => {
   if (window.location.pathname === '/sale') {

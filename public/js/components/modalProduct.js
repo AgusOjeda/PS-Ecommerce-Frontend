@@ -1,6 +1,6 @@
 export const ModalProduct = (product) => `
 <section id="modal-component-container" class="container mt-3 mb-3">
-<div class="bg-white shadow-lg p-6 rounded-2xl">
+<div class="bg-white shadow-lg p-2 rounded-2xl">
 <button class="flex font-bold" id="close-modal">
   <i
     class="bx bx-arrow-back text-2xl"

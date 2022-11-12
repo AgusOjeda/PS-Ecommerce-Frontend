@@ -21,6 +21,21 @@ export const AddOrder = async (clientId, callback) => {
       return body
     })
 }
+export const GetOrder2 = async (clientId) => {
+  const headersList = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json'
+  }
+  const url = urlBase + `/${clientId}`
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: headersList
+  })
+  if (response.ok) {
+    const body = await response.json()
+    return body.data
+  }
+}
 export const GetOrders = async (from, to, callback) => {
   let url = urlBase
   if (from && to) {

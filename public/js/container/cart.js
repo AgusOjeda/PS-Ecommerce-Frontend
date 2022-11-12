@@ -1,9 +1,11 @@
 import { EmptyCartComponent } from '../components/emptyCart.js'
-import { getCartOnLocalStorage } from '../services/CartOnLocalStorage.js'
+import { getCartOnLocalStorage, deleteCartOnLocalStorage } from '../services/CartOnLocalStorage.js'
 import { ProductById } from '../services/ProductService.js'
 import { FrameCart } from '../components/Cart/cart.js'
 import { ProductInCart } from '../components/Cart/ProductInCardComponent.js'
 import { IncreaseProductEvent, DecreaseProductEvent, DeleteProduct, BuySubtotal } from '../services/CarritoService.js'
+import { AddOrder } from '../services/OrdenService.js'
+import { OrderGenerate } from '../components/orderGenerate.js'
 let _root
 
 export const CartRender = async () => {
@@ -25,6 +27,7 @@ export const CartRender = async () => {
         RenderSubTotal()
       })
     })
+    CheckOut()
   } else {
     _root.innerHTML = ''
     const { content } = EmptyCartComponent()
@@ -37,4 +40,18 @@ const RenderSubTotal = () => {
   const resumeTotal = document.getElementById('total')
   resumeSubtotal.innerText = '$ ' + BuySubtotal()
   resumeTotal.innerText = resumeSubtotal.innerText
+}
+
+const CheckOut = () => {
+  const checkout = document.getElementById('btn-checkout')
+  checkout.addEventListener('click', () => {
+    AddOrder(1, (body) => { CheckOutRender(body.data) })
+    deleteCartOnLocalStorage()
+  })
+}
+
+const CheckOutRender = (body) => {
+  _root.innerHTML = ''
+  const content = OrderGenerate(body)
+  _root.innerHTML = content
 }

@@ -36,6 +36,7 @@ const searchProduct = async (e) => {
   })
   changeView(view, title)
   VerifyProductInCart()
+  modal()
 }
 const chargeInit = async () => {
   await getProducts('', '', (product) => {
@@ -87,11 +88,6 @@ const VerifyProductInCart = () => {
     })
   }
 }
-/*
-DeleteProductInCart(product.productId, () => { })
-          deleteOnLocalCartById(product.productId)
-          deleteButton.parentElement.classList.add('hidden')
-*/
 const DeleteButtonEvent = (e) => {
   let id = e.target.id.split('-')[1]
   const productBox = document.getElementById(id)
@@ -109,7 +105,6 @@ const DeleteButtonEvent = (e) => {
 export const IndexRender = async () => {
   _root = document.getElementById('root')
   await RenderProductPage()
-  // VerifyProductInCart()
   document.getElementById('search').onchange = searchProduct
   modal()
   AddToCart()

@@ -10,6 +10,8 @@ export const modal = () => {
   }
 }
 
+// Add function to update product amount, and delete product
+
 const showModalClicked = async (event) => {
   const product = event.target.parentElement.parentElement
   const id = product.getAttribute('id')
