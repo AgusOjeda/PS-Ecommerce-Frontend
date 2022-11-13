@@ -27,7 +27,7 @@
                   <i class='bx bxs-user-detail p-2 mr-3 font-semibold '></i>
                   <span class="self-center font-semibold">Clientes</span>
                 </li>
-                <li class="flex mb-4  text-[#D1D5DB] hover:bg-[#242a38] rounded-lg mt-4 transition-colors duration-75 cursor-pointer">
+                <li id="sells" class="flex mb-4  text-[#D1D5DB] hover:bg-[#242a38] rounded-lg mt-4 transition-colors duration-75 cursor-pointer active:bg-[#242a38] active:text-[#10b981]">
                   <i class='bx bx-bar-chart-alt-2 p-2 mr-3 font-semibold'></i>
                   <span class="self-center font-semibold">Ventas</span>
                 </li>
@@ -35,27 +35,23 @@
        </div>
     <!-- NavBar -->
     <div class="ml-64">
-      <nav class="shadow-sm flex p-6 rounded-t-2xl">
-        <div class="flex flex-grow items-center border border-gray-300 rounded-lg focus:ring-1">
+      <nav class="shadow-lg flex p-6 rounded-t-2xl">
+        <div class="flex flex-grow items-center border border-gray-300 rounded-lg focus:ring-1 hover:ring-1 hover:ring-purple-600">
           <i class='bx bx-search p-2.5'></i>
           <input
             type="search"
             id="search"
-            class= ""
+            class= "w-full border-0 focus:outline-none focus:ring-0 rounded-lg"
             placeholder="Search"
             required
           />
         </div>
-        <i class='bx bxs-bell p-2 mr-3 rounded-lg'></i>
+        <i class='bx bxs-bell p-3 mr-3 rounded-lg'></i>
         <img class="rounded-full w-[40px] h-[40px]" src="../images/user-default.png"/>
       </nav>
-      <main class="bg-slate-400">
-        <h1> Orders </h1>
-        <div class="card">
-
-        </div>
+      <main id="root" class="mt-8 container">
       </main>
     </div>
-    <!-- Main Content-->
+    <script type="module" src="../js/dashboard.js"></script>
   </body>
 </html>

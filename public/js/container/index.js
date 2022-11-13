@@ -4,7 +4,7 @@ import { modal } from '../services/modal.js'
 import { saveCartOnLocalStorage, getCartOnLocalStorage, deleteOnLocalCartById } from '../services/CartOnLocalStorage.js'
 import { AddProductToCart, DeleteProductInCart } from '../services/CarritoApi.js'
 import { ProductCardButton } from '../components/Buttons/productCardButton.js'
-import { IncreaseProductEvent, DecreaseProductEvent, DeleteProduct } from '../services/CarritoService.js'
+import { IncreaseProductEvent, DecreaseProductEvent } from '../services/CarritoService.js'
 import { ProductAddButton } from '../components/Buttons/productAddButton.js'
 let content
 let _root
