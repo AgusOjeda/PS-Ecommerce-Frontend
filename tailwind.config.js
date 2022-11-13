@@ -21,7 +21,10 @@ module.exports = {
         textColor: '#1A2030',
         secondary: '#1D5BFB',
         secondaryHover: '#174ACE',
-        gold: '#FBC920'
+        gold: '#FBC920',
+        mainColorDB: '#DD2F6E',
+        colorDarkDB: '#1D2231',
+        textGreyDB: '#8390A2'
       }
     }
   },

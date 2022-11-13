@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ECOMMERCE</title>
+    <link rel="stylesheet" href="../css/ownStyles.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <script src="/reload/reload.js"></script>
     <link
@@ -13,25 +14,48 @@
     />
   </head>
 
-  <body class="font-GilroyRegular bg-gradient-to-l from-[#DF0EB1] to-[#6705A3] m-6 rounded-xl">
-    <nav class="bg-[#EEE6FA] shadow-sm flex p-6 rounded-t-2xl">
-      <h6 class="flex-grow text-2xl font-bold"">Almacelme</h6>
-      <img class="rounded-full w-[45px] h-[45px]" src="../images/user-default.png"/>
-    </nav>
-    <nav class="flex bg-[#EEE6FA] shadow-sm rounded-bl-2xl h-5/6">
-        <div class="p-6 border-r border-gray-200 w-64">
-            <h6 class="font-bold mb-4 text-lg">Acciones rapidas</h6>
-            <ul>
-                <li class="flex mb-8 shadow-sm hover:shadow-inner hover:ring-1 text-[#717171]"><i class='bx bx-home p-2 mr-3 rounded-lg'></i><span class="self-center">Inicio</span></li>
-                <li class="flex mb-8 shadow-sm hover:shadow-inner hover:ring-1 text-[#717171]"><i class='bx bxs-user-detail bg-white shadow-sm p-2 mr-3 rounded-lg'></i><span class="self-center">Clientes</span></li>
-                <li class="flex mb-8 shadow-sm hover:shadow-inner hover:ring-1 text-[#717171]"><i class='bx bx-bar-chart-alt-2 bg-white shadow-sm p-2 mr-3 rounded-lg'></i><span class="self-center">Ventas</span></li>
+  <body class="font-GilroyRegular">
+    <!-- Side Bar-->
+      <div class="bg-[#111827] h-screen p-6 border-r border-gray-200 w-64 flex items-start flex-col gap-6 fixed">
+            <h1 class="text-2xl font-bold text-white"">Almacelme</h1>
+            <ul class="w-full mt-8 border-t border-gray-300">
+                <li class="flex mb-4  text-[#D1D5DB] hover:bg-[#242a38] rounded-lg mt-4 transition-colors duration-75 cursor-pointer">
+                  <i class='bx bx-home p-2 mr-3 font-semibold '></i>
+                  <span class="self-center font-semibold">Inicio</span>
+                </li>
+                <li class="flex mb-4  text-[#D1D5DB] hover:bg-[#242a38] rounded-lg mt-4 transition-colors duration-75 cursor-pointer">
+                  <i class='bx bxs-user-detail p-2 mr-3 font-semibold '></i>
+                  <span class="self-center font-semibold">Clientes</span>
+                </li>
+                <li class="flex mb-4  text-[#D1D5DB] hover:bg-[#242a38] rounded-lg mt-4 transition-colors duration-75 cursor-pointer">
+                  <i class='bx bx-bar-chart-alt-2 p-2 mr-3 font-semibold'></i>
+                  <span class="self-center font-semibold">Ventas</span>
+                </li>
             </ul>
-            <h6 class="font-bold mb-4">Configuracion</h6>
-            <ul>
-                <li class="flex mb-8 shadow-sm hover:shadow-inner hover:ring-1 text-[#717171]"><i class='bx bx-user bg-white shadow-sm p-2 mr-3 rounded-lg'></i><span class="self-center">Perfil</span></li>
-                <li class="flex mb-8 shadow-sm hover:shadow-inner hover:ring-1 text-[#717171]"><i class='bx bx-cog bg-white shadow-sm p-2 mr-3 rounded-lg'></i><span class="self-center">Ajustes</span></li>
-            </ul>
+       </div>
+    <!-- NavBar -->
+    <div class="ml-64">
+      <nav class="shadow-sm flex p-6 rounded-t-2xl">
+        <div class="flex flex-grow items-center border border-gray-300 rounded-lg focus:ring-1">
+          <i class='bx bx-search p-2.5'></i>
+          <input
+            type="search"
+            id="search"
+            class= ""
+            placeholder="Search"
+            required
+          />
         </div>
-    </nav>
+        <i class='bx bxs-bell p-2 mr-3 rounded-lg'></i>
+        <img class="rounded-full w-[40px] h-[40px]" src="../images/user-default.png"/>
+      </nav>
+      <main class="bg-slate-400">
+        <h1> Orders </h1>
+        <div class="card">
+
+        </div>
+      </main>
+    </div>
+    <!-- Main Content-->
   </body>
 </html>
