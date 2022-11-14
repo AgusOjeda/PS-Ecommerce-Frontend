@@ -8,7 +8,7 @@ export const ProductCard = (id, nombre, marca, precio, descripcion, imagenUrl) =
     <h4 class="text-xs font-extralight mb-2"> ${marca} </h4>
     <span class="text-xl font-bold text-green-500">$ ${precio} </span>
 </div>
-<button class="w-full h-9 bottom-0 left-0 bg-green-500 text-white cursor-pointer rounded-b-3xl rounded-t-lg border-2 add-cart">
+<button class="w-full h-9 bottom-0 left-0 bg-green-500 hover:bg-green-600 text-white cursor-pointer rounded-b-3xl rounded-t-lg border-2 add-cart">
 <i class="bx bxs-cart-add" />
 </i>AGREGAR</button>
 `
