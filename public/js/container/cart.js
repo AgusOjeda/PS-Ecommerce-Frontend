@@ -18,7 +18,7 @@ export const CartRender = async () => {
     await cart.forEach(async (item) => {
       ProductById(item.productId, (product) => {
         const productBox = document.createElement('div')
-        productBox.classList.add('border-b', 'border-dashed', 'border-gray-500', 'grid', 'grid-cols-4', 'mt-2', 'mb-1', 'justify-items-center')
+        productBox.classList.add('border-b', 'border-dashed', 'border-gray-500', 'grid', 'grid-cols-4', 'mt-2', 'mb-1', 'justify-items-center', 'rounded-2xl')
         productBox.setAttribute('id', product.id)
         productBox.innerHTML = ProductInCart(product.id, product.nombre, product.marca, product.precio, product.descripcion, product.imagenUrl, item.amount)
         table.append(productBox)

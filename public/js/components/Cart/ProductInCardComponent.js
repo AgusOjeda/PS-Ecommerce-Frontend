@@ -1,7 +1,7 @@
 export const ProductInCart = (id, nombre, marca, precio, descripcion, imagenUrl, amount) => {
-  const productInCart = /* html */`
+  const productInCart = `
       <div id="product-${id}" class="grid grid-cols-2">
-        <img class="w-24 h-24" src=${imagenUrl} alt="${descripcion}"/>
+        <img class="w-24 h-24 p-1" src=${imagenUrl} alt="${descripcion}"/>
         <div>
           <h3 class="text-sm font-bold">${nombre}</h3>
           <p class="text-xs text-gray-500 font-extralight">${marca}</p>
