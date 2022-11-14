@@ -4,7 +4,7 @@ import { modal } from '../services/modal.js'
 import { saveCartOnLocalStorage, getCartOnLocalStorage, deleteOnLocalCartById } from '../services/CartOnLocalStorage.js'
 import { AddProductToCart, DeleteProductInCart } from '../services/CarritoApi.js'
 import { ProductCardButton } from '../components/Buttons/productCardButton.js'
-import { IncreaseProductEvent, DecreaseProductEvent, DeleteProduct } from '../services/CarritoService.js'
+import { IncreaseProductEvent, DecreaseProductEvent } from '../services/CarritoService.js'
 import { ProductAddButton } from '../components/Buttons/productAddButton.js'
 let content
 let _root
@@ -20,48 +20,70 @@ const RenderProduct = async (products) => {
   })
 }
 const RenderProductPage = async () => {
-  const { view, title } = renderFrame()
-  await chargeInit()
-  changeView(view, title)
+  const { view, heading } = renderFrame()
+  const sort = true
+  await chargeInit(sort)
+  changeView(view, heading)
   VerifyProductInCart()
+}
+const sortProduct = async (e) => {
+  const { view, heading } = renderFrame()
+  const sort = e.target.value
+  console.log(sort)
+  await chargeInit(sort)
+  changeView(view, heading)
+  VerifyProductInCart()
+  modal()
+  AddToCart()
 }
 
 const searchProduct = async (e) => {
   e.preventDefault()
   _root.innerHTML = ''
-  const { view, title } = renderFrame()
+  const { view, heading } = renderFrame()
   const search = e.target.value
   await getProducts(search, '', (product) => {
     RenderProduct(product)
   })
-  changeView(view, title)
+  changeView(view, heading)
   VerifyProductInCart()
   modal()
 }
-const chargeInit = async () => {
-  await getProducts('', '', (product) => {
+const chargeInit = async (sort) => {
+  await getProducts('', sort, (product) => {
     RenderProduct(product)
   })
 }
 function renderFrame () {
   const view = document.createElement('section')
   view.classList.add('mt-8', 'container', 'max-w-5xl')
-  const title = document.createElement('h1')
-  title.classList.add('text-3xl', 'font-bold', 'text-center', 'mt-8')
-  title.textContent = 'Productos'
+  const heading = document.createElement('div')
+  heading.classList.add('mb-4', 'border-b', 'pb-2')
+  const productHeader = `
+      <div class="flex items-center ">
+        <h1 class="text-xl font-semibold text-textColor">Productos</h1>
+        <div class="ml-auto border p-1">
+          <span class="text-base text-gray-900 self-center">Ordenar por: </span>
+          <select id="sort-option" class="bg-[#f9fafc] h-10 px-5 pr-16 text-base border-none outline-none rounded-none">
+            <option value="true">Ascendente</option>
+            <option value="false">Descendente</option>
+          </select>
+        </div>
+      </div>
+  `
+  heading.innerHTML = productHeader
   content = document.createElement('div')
   content.setAttribute('id', 'content')
   content.classList.add('grid', 'grid-cols-4', 'gap-x-16', 'gap-y-9', 'mt-8')
-  return { view, title }
+  return { view, heading }
 }
-function changeView (view, title) {
-  view.innerHTML = title.outerHTML + content.outerHTML
+function changeView (view, heading) {
+  view.innerHTML = heading.outerHTML + content.outerHTML
   _root.innerHTML = view.outerHTML
 }
 
 const VerifyProductInCart = () => {
   const cart = getCartOnLocalStorage()
-  // Get all id of children of content div
   const children = Array.from(content.children)
   const idChildren = children.map((child) => {
     return parseInt(child.id)
@@ -106,6 +128,23 @@ export const IndexRender = async () => {
   _root = document.getElementById('root')
   await RenderProductPage()
   document.getElementById('search').onchange = searchProduct
+  document.getElementById('sort-option').addEventListener('change', (e) => {
+    const body = document.getElementById('content')
+    body.innerHTML = ''
+    getProducts('', e.target.value, (products) => {
+      products.forEach((product) => {
+        const productBox = document.createElement('div')
+        productBox.classList.add('rounded-3xl', 'hover:rounded-3xl', 'hover:border-2', 'hover:border-green-500', 'hover:transition-all', 'duration-75', 'product-box')
+        productBox.setAttribute('id', product.id)
+        const productContent = ProductCard(product.id, product.nombre, product.marca, product.precio, product.descripcion, product.imagenUrl)
+        productBox.innerHTML = productContent
+        body.append(productBox)
+      })
+      VerifyProductInCart()
+      modal()
+      AddToCart()
+    })
+  })
   modal()
   AddToCart()
 }
