@@ -37,29 +37,9 @@ export const ModalProduct = (product) => `
       <p class="text-orange-500 font-semibold text-lg p-4">
         Envio Gratis
       </p>
-      <div class="grid grid-cols-2 gap-2 mt-4 p-4">
-        <div
-          class="center text-center border-slate-200 border rounded-2xl select-none"
-        >
-          <span
-            ><i
-              id="quantity-decrement"
-              class="bx bx-minus text-xl cursor-pointer text-green-500 mr-4"
-            ></i
-          ></span>
-          <span
-            id="quantity"
-            class="bg-white rounded-2xl w-14 text-xl text-center focus:outline-none"
-            >1</span
-          >
-          <span
-            ><i
-              id="quantity-increment"
-              class="bx bx-plus text-xl cursor-pointer text-green-500 ml-4"
-            ></i
-          ></span>
-        </div>
-        <button
+      <div class="grid gap-2 mt-4 p-4">
+        
+        <button id="add-to-cart"
           class="border-slate-200 border rounded-2xl bg-green-500 text-white font-normal hover:ring-green-500 hover:outline-none hover:ring-2"
         >
           <i class="bx bxs-cart-add"></i>

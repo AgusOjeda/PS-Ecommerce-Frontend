@@ -26,16 +26,6 @@ const RenderProductPage = async () => {
   changeView(view, heading)
   VerifyProductInCart()
 }
-const sortProduct = async (e) => {
-  const { view, heading } = renderFrame()
-  const sort = e.target.value
-  console.log(sort)
-  await chargeInit(sort)
-  changeView(view, heading)
-  VerifyProductInCart()
-  modal()
-  AddToCart()
-}
 
 const searchProduct = async (e) => {
   e.preventDefault()
